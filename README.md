@@ -1,7 +1,8 @@
 # Web simulation of UbuntuOS
 
-This is a personal portfolio website of theme Ubuntu 20.04, made using Next.js & tailwind CSS.
-If you want to edit this. Clone this project and edit the files in `/src/components`.
+Typescript + React hooks rework of Ubuntu themed portfolio
+
+REFERENCE https://github.com/aiden77mori/aiden-portfolio
 
 To run this on localhost
 type `npm start` and when u are done coding type `npm run build` to build your app.
