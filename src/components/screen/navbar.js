@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import Clock from "../util components/clock";
-import Status from "../util components/status";
-import StatusCard from "../util components/status_card";
-import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
-import db from "../utils/firebase";
+import React, { Component } from 'react';
+import Clock from '../util components/clock';
+import Status from '../util components/status';
+import StatusCard from '../util components/status_card';
+import { doc, getDoc, updateDoc, increment } from 'firebase/firestore';
+import db from '../utils/firebase';
 
 export default class Navbar extends Component {
   constructor() {
@@ -22,7 +22,7 @@ export default class Navbar extends Component {
   initVisit = async () => {
     try {
       this.setState({ loading: true });
-      const docRef = doc(db, "visitList", "visitid");
+      const docRef = doc(db, 'visitList', 'visitid');
       await updateDoc(docRef, {
         visit: increment(1),
       });
@@ -43,7 +43,7 @@ export default class Navbar extends Component {
         <div
           tabIndex="0"
           className={
-            "pl-3 pr-3 outline-none flex items-center  transition duration-100 ease-in-out border-b-2 border-transparent focus:border-ubb-orange py-1 "
+            'pl-3 pr-3 outline-none flex items-center  transition duration-100 ease-in-out border-b-2 border-transparent focus:border-ubb-orange py-1 '
           }
         >
           <span className="mr-2">Total Visitors: </span>
@@ -66,7 +66,7 @@ export default class Navbar extends Component {
                     fill="currentFill"
                   />
                 </svg>
-                <span class="sr-only">Loading...</span>
+                <span className="sr-only">Loading...</span>
               </div>
             ) : (
               this.state.visit_count
@@ -76,7 +76,7 @@ export default class Navbar extends Component {
         <div
           tabIndex="0"
           className={
-            "pl-2 pr-2 text-xs md:text-sm outline-none transition duration-100 ease-in-out border-b-2 border-transparent focus:border-ubb-orange py-1"
+            'pl-2 pr-2 text-xs md:text-sm outline-none transition duration-100 ease-in-out border-b-2 border-transparent focus:border-ubb-orange py-1'
           }
         >
           <Clock />
@@ -89,7 +89,7 @@ export default class Navbar extends Component {
           }}
           // removed onBlur from here
           className={
-            "relative pr-3 pl-3 outline-none transition duration-100 ease-in-out border-b-2 border-transparent focus:border-ubb-orange py-1 "
+            'relative pr-3 pl-3 outline-none transition duration-100 ease-in-out border-b-2 border-transparent focus:border-ubb-orange py-1 '
           }
         >
           <Status />
