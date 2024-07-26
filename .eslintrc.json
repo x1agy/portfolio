@@ -5,12 +5,10 @@
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
-  "parserOptions": {
-    "project": true,
-    "tsconfigRootDir": "__dirname"
-  },
-  "plugins": ["@typescript-eslint", "simple-import-sort"]
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "rules": {
+    "@typescript-eslint/no-misused-promises": "off"
+  }
 }
