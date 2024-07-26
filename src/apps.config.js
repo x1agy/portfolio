@@ -11,15 +11,15 @@ import { displayAboutAiden } from '@/components/apps/aiden';
 import { displayTerminalCalc } from '@/components/apps/calc';
 
 const apps = [
-  {
-    id: 'about-aiden',
-    title: 'About Aiden',
-    icon: './images/logos/aidenmori.png',
-    disabled: false,
-    favourite: true,
-    desktop_shortcut: true,
-    screen: displayAboutAiden,
-  },
+  // {
+  //   id: 'about-aiden',
+  //   title: 'About Aiden',
+  //   icon: './images/logos/aidenmori.png',
+  //   disabled: false,
+  //   favourite: true,
+  //   desktop_shortcut: true,
+  //   screen: displayAboutAiden,
+  // },
   {
     id: 'chrome',
     title: 'Google Chrome',

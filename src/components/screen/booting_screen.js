@@ -1,18 +1,12 @@
-import React from "react";
+import React from 'react';
 
 function BootingScreen(props) {
   return (
     <div
-      style={
-        props.visible || props.isShutDown
-          ? { zIndex: "100" }
-          : { zIndex: "-20" }
-      }
+      style={props.visible || props.isShutDown ? { zIndex: '100' } : { zIndex: '-20' }}
       className={
-        (props.visible || props.isShutDown
-          ? " visible opacity-100"
-          : " invisible opacity-0 ") +
-        " absolute duration-500 select-none flex flex-col justify-around items-center top-0 right-0 overflow-hidden m-0 p-0 h-screen w-screen bg-black"
+        (props.visible || props.isShutDown ? ' visible opacity-100' : ' invisible opacity-0 ') +
+        ' absolute duration-500 select-none flex flex-col justify-around items-center top-0 right-0 overflow-hidden m-0 p-0 h-screen w-screen bg-black'
       }
     >
       <img
@@ -40,7 +34,7 @@ function BootingScreen(props) {
           <img
             width="40px"
             height="40px"
-            className={" w-10 " + (props.visible ? " animate-spin " : "")}
+            className={' w-10 ' + (props.visible ? ' animate-spin ' : '')}
             src="./themes/Yaru/status/process-working-symbolic.svg"
             alt="Ubuntu Process Symbol"
           />
@@ -54,17 +48,17 @@ function BootingScreen(props) {
         alt="Ubuntu Name"
       />
       <div className="text-white mb-4">
-        <a
+        {/* <a
           className="underline"
           href="https://www.linkedin.com/in/aiden-mori-193b9325b/"
           rel="noreferrer noopener"
           target="_blank"
         >
           linkedin
-        </a>
+        </a> */}
         <span className="font-bold mx-1">|</span>
         <a
-          href="https://github.com/aiden77mori"
+          href="https://github.com/x1agy"
           rel="noreferrer noopener"
           target="_blank"
           className="underline"
