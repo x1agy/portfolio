@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   font-family: "Ubuntu", sans-serif;
   font-display: swap;
@@ -36,11 +40,9 @@ body {
 input[type="range"].ubuntu-slider {
   outline: none;
   -webkit-appearance: none;
-  background: linear-gradient(
-    to right,
-    rgba(175, 175, 175, 0.3) 0%,
-    rgba(175, 175, 175, 0.3) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(175, 175, 175, 0.3) 0%,
+      rgba(175, 175, 175, 0.3) 100%);
   background-position: center;
   background-size: 99% 3px;
   background-repeat: no-repeat;
@@ -128,15 +130,13 @@ input[type="range"].ubuntu-slider::-webkit-slider-thumb {
 @keyframes closeWindow {
   0% {
     opacity: 1;
-    transform: translate(var(--window-transform-x), var(--window-transform-y))
-      scale(1);
+    transform: translate(var(--window-transform-x), var(--window-transform-y)) scale(1);
     visibility: visible;
   }
 
   100% {
     opacity: 0;
-    transform: translate(var(--window-transform-x), var(--window-transform-y))
-      scale(0.85);
+    transform: translate(var(--window-transform-x), var(--window-transform-y)) scale(0.85);
     visibility: hidden;
   }
 }
@@ -184,31 +184,38 @@ input[type="range"].ubuntu-slider::-webkit-slider-thumb {
   background-color: rgb(43, 43, 43);
 }
 
-.emoji-list > li {
+.emoji-list>li {
   padding-left: 10px;
 }
 
 .list-pc {
   list-style: "✅";
 }
+
 .list-building {
   list-style: "👨🏻‍💻";
 }
+
 .list-time {
   list-style: "🎲";
 }
+
 .list-star {
   list-style: "🌟";
 }
+
 .list-arrow {
   list-style: "⇀";
 }
+
 .list-finger {
   list-style: "👉";
 }
+
 .list-pin {
   list-style: "📌";
 }
+
 .list-view {
   list-style: "↗️";
 }

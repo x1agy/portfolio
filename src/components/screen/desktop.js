@@ -1,14 +1,14 @@
-import { Component } from "react";
-import BackgroundImage from "../util components/background-image";
-import SideBar from "./side_bar";
-import apps from "../../apps.config";
-import Window from "../base/window";
-import UbuntuApp from "../base/ubuntu_app";
-import AllApplications from "../screen/all-applications";
-import DesktopMenu from "../context menus/desktop-menu";
-import DefaultMenu from "../context menus/default";
-import $ from "jquery";
-import ReactGA from "react-ga";
+import { Component } from 'react';
+import BackgroundImage from '../util components/background-image';
+import SideBar from './side_bar';
+import apps from '../../apps.config';
+import Window from '../base/window';
+import UbuntuApp from '../base/ubuntu_app';
+import AllApplications from './all-applications';
+import DesktopMenu from '../context menus/desktop-menu';
+import DefaultMenu from '../context menus/default';
+import $ from 'jquery';
+import ReactGA from 'react-ga';
 
 export class Desktop extends Component {
   constructor() {
@@ -36,13 +36,13 @@ export class Desktop extends Component {
 
   componentDidMount() {
     // google analytics
-    ReactGA.pageview("/desktop");
+    ReactGA.pageview('/desktop');
 
     this.fetchAppsData();
     this.setContextListeners();
     this.setEventListeners();
     this.checkForNewFolders();
-    this.openApp("about-aiden");
+    this.openApp('about-aiden');
   }
 
   componentWillUnmount() {
@@ -50,16 +50,16 @@ export class Desktop extends Component {
   }
 
   checkForNewFolders = () => {
-    var new_folders = localStorage.getItem("new_folders");
+    var new_folders = localStorage.getItem('new_folders');
     if (new_folders === null && new_folders !== undefined) {
-      localStorage.setItem("new_folders", JSON.stringify([]));
+      localStorage.setItem('new_folders', JSON.stringify([]));
     } else {
       new_folders = JSON.parse(new_folders);
       new_folders.forEach((folder) => {
         apps.push({
           id: `new-folder-${folder.id}`,
           title: folder.name,
-          icon: "./themes/Yaru/system/folder.png",
+          icon: './themes/Yaru/system/folder.png',
           disabled: true,
           favourite: false,
           desktop_shortcut: true,
@@ -71,39 +71,39 @@ export class Desktop extends Component {
   };
 
   setEventListeners = () => {
-    document.getElementById("open-settings").addEventListener("click", () => {
-      this.openApp("settings");
+    document.getElementById('open-settings').addEventListener('click', () => {
+      this.openApp('settings');
     });
   };
 
   setContextListeners = () => {
-    document.addEventListener("contextmenu", this.checkContextMenu);
+    document.addEventListener('contextmenu', this.checkContextMenu);
     // on click, anywhere, hide all menus
-    document.addEventListener("click", this.hideAllContextMenu);
+    document.addEventListener('click', this.hideAllContextMenu);
   };
 
   removeContextListeners = () => {
-    document.removeEventListener("contextmenu", this.checkContextMenu);
-    document.removeEventListener("click", this.hideAllContextMenu);
+    document.removeEventListener('contextmenu', this.checkContextMenu);
+    document.removeEventListener('click', this.hideAllContextMenu);
   };
 
   checkContextMenu = (e) => {
     e.preventDefault();
     this.hideAllContextMenu();
     switch (e.target.dataset.context) {
-      case "desktop-area":
+      case 'desktop-area':
         ReactGA.event({
           category: `Context Menu`,
           action: `Opened Desktop Context Menu`,
         });
-        this.showContextMenu(e, "desktop");
+        this.showContextMenu(e, 'desktop');
         break;
       default:
         ReactGA.event({
           category: `Context Menu`,
           action: `Opened Default Context Menu`,
         });
-        this.showContextMenu(e, "default");
+        this.showContextMenu(e, 'default');
     }
   };
 
@@ -111,13 +111,11 @@ export class Desktop extends Component {
     let { posx, posy } = this.getMenuPosition(e);
     let contextMenu = document.getElementById(`${menuName}-menu`);
 
-    if (posx + $(contextMenu).width() > window.innerWidth)
-      posx -= $(contextMenu).width();
-    if (posy + $(contextMenu).height() > window.innerHeight)
-      posy -= $(contextMenu).height();
+    if (posx + $(contextMenu).width() > window.innerWidth) posx -= $(contextMenu).width();
+    if (posy + $(contextMenu).height() > window.innerHeight) posy -= $(contextMenu).height();
 
-    posx = posx.toString() + "px";
-    posy = posy.toString() + "px";
+    posx = posx.toString() + 'px';
+    posy = posy.toString() + 'px';
 
     contextMenu.style.left = posx;
     contextMenu.style.top = posy;
@@ -145,14 +143,8 @@ export class Desktop extends Component {
       posx = e.pageX;
       posy = e.pageY;
     } else if (e.clientX || e.clientY) {
-      posx =
-        e.clientX +
-        document.body.scrollLeft +
-        document.documentElement.scrollLeft;
-      posy =
-        e.clientY +
-        document.body.scrollTop +
-        document.documentElement.scrollTop;
+      posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+      posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
     return {
       posx,
@@ -384,10 +376,10 @@ export class Desktop extends Component {
       this.focus(objId);
 
       // set window's last position
-      var r = document.querySelector("#" + objId);
+      var r = document.querySelector('#' + objId);
       r.style.transform = `translate(${r.style.getPropertyValue(
-        "--window-transform-x"
-      )},${r.style.getPropertyValue("--window-transform-y")}) scale(1)`;
+        '--window-transform-x',
+      )},${r.style.getPropertyValue('--window-transform-y')}) scale(1)`;
 
       // tell childs that his app has been not minimised
       let minimized_windows = this.state.minimized_windows;
@@ -401,8 +393,8 @@ export class Desktop extends Component {
     else {
       let closed_windows = this.state.closed_windows;
       let favourite_apps = this.state.favourite_apps;
-      var frequentApps = localStorage.getItem("frequentApps")
-        ? JSON.parse(localStorage.getItem("frequentApps"))
+      var frequentApps = localStorage.getItem('frequentApps')
+        ? JSON.parse(localStorage.getItem('frequentApps'))
         : [];
       var currentApp = frequentApps.find((app) => app.id === objId);
       if (currentApp) {
@@ -425,15 +417,12 @@ export class Desktop extends Component {
         return 0; // sort according to decreasing frequencies
       });
 
-      localStorage.setItem("frequentApps", JSON.stringify(frequentApps));
+      localStorage.setItem('frequentApps', JSON.stringify(frequentApps));
 
       setTimeout(() => {
         favourite_apps[objId] = true; // adds opened app to sideBar
         closed_windows[objId] = false; // openes app's window
-        this.setState(
-          { closed_windows, favourite_apps, allAppsView: false },
-          this.focus(objId)
-        );
+        this.setState({ closed_windows, favourite_apps, allAppsView: false }, this.focus(objId));
         this.app_stack.push(objId);
       }, 200);
     }
@@ -478,20 +467,20 @@ export class Desktop extends Component {
 
   addToDesktop = (folder_name) => {
     folder_name = folder_name.trim();
-    let folder_id = folder_name.replace(/\s+/g, "-").toLowerCase();
+    let folder_id = folder_name.replace(/\s+/g, '-').toLowerCase();
     apps.push({
       id: `new-folder-${folder_id}`,
       title: folder_name,
-      icon: "./themes/Yaru/system/folder.png",
+      icon: './themes/Yaru/system/folder.png',
       disabled: true,
       favourite: false,
       desktop_shortcut: true,
       screen: () => {},
     });
     // store in local storage
-    var new_folders = JSON.parse(localStorage.getItem("new_folders"));
+    var new_folders = JSON.parse(localStorage.getItem('new_folders'));
     new_folders.push({ id: `new-folder-${folder_id}`, name: folder_name });
-    localStorage.setItem("new_folders", JSON.stringify(new_folders));
+    localStorage.setItem('new_folders', JSON.stringify(new_folders));
 
     this.setState({ showNameBar: false }, this.updateAppsData);
   };
@@ -502,7 +491,7 @@ export class Desktop extends Component {
 
   renderNameBar = () => {
     let addFolder = () => {
-      let folder_name = document.getElementById("folder-name-input").value;
+      let folder_name = document.getElementById('folder-name-input').value;
       this.addToDesktop(folder_name);
     };
 
@@ -545,14 +534,11 @@ export class Desktop extends Component {
     return (
       <div
         className={
-          " h-full w-full flex flex-col items-end justify-start content-end flex-wrap-reverse pt-8 bg-transparent relative overflow-hidden overscroll-none window-parent"
+          ' h-full w-full flex flex-col items-end justify-start content-end flex-wrap-reverse pt-8 bg-transparent relative overflow-hidden overscroll-none window-parent'
         }
       >
         {/* Window Area */}
-        <div
-          className="absolute h-full w-full bg-transparent"
-          data-context="desktop-area"
-        >
+        <div className="absolute h-full w-full bg-transparent" data-context="desktop-area">
           {this.renderWindows()}
         </div>
 
@@ -588,11 +574,7 @@ export class Desktop extends Component {
         {this.state.showNameBar ? this.renderNameBar() : null}
 
         {this.state.allAppsView ? (
-          <AllApplications
-            apps={apps}
-            recentApps={this.app_stack}
-            openApp={this.openApp}
-          />
+          <AllApplications apps={apps} recentApps={this.app_stack} openApp={this.openApp} />
         ) : null}
       </div>
     );
