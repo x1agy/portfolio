@@ -1,65 +1,62 @@
-import React from "react";
+import React from 'react';
 
 function DefaultMenu(props) {
   return (
     <div
       id="default-menu"
       className={
-        (props.active ? " block " : " hidden ") +
-        " cursor-default w-52 context-menu-bg border text-left border-gray-900 rounded text-white py-4 absolute z-50 text-sm"
+        (props.active ? ' block ' : ' hidden ') +
+        ' cursor-default w-52 context-menu-bg border text-left border-gray-900 rounded text-white py-4 absolute z-50 text-sm'
       }
     >
       <a
         rel="noreferrer noopener"
-        href="https://github.com/aiden77mori/aiden-portfolio"
+        href="https://github.com/x1agy/portfolio"
         target="_blank"
         className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5"
       >
-        <span className="ml-5">🌟</span>{" "}
-        <span className="ml-2">Star this Project</span>
+        <span className="ml-5">🌟</span> <span className="ml-2">Star this Project</span>
       </a>
       <a
         rel="noreferrer noopener"
-        href="https://github.com/aiden77mori/aiden-portfolio/issues"
+        href="https://github.com/x1agy/portfolio/issues"
         target="_blank"
         className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5"
       >
-        <span className="ml-5">❗</span>{" "}
-        <span className="ml-2">Report bugs</span>
+        <span className="ml-5">❗</span> <span className="ml-2">Report bugs</span>
       </a>
-      <Devider />
+      <Divider />
       <a
         rel="noreferrer noopener"
-        href="https://www.linkedin.com/in/aiden-mori-193b9325b/"
+        href="https://t.me/Xhhdhe"
         target="_blank"
         className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5"
       >
-        <span className="ml-5">🙋‍♂️</span>{" "}
+        <span className="ml-5">🙋‍♂️</span>{' '}
         <span className="ml-2">
-          Follow on <strong>Linkedin</strong>
+          Contact in <strong>Telegram</strong>
         </span>
       </a>
       <a
         rel="noreferrer noopener"
-        href="https://github.com/aiden77mori"
+        href="https://github.com/x1agy"
         target="_blank"
         className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5"
       >
-        <span className="ml-5">🤝</span>{" "}
+        <span className="ml-5">🤝</span>{' '}
         <span className="ml-2">
           Follow on <strong>Github</strong>
         </span>
       </a>
       <a
         rel="noreferrer noopener"
-        href="mailto:aiden77mori@gmail.com"
+        href="mailto:skizzzgrand@gmail.com"
         target="_blank"
         className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5"
       >
-        <span className="ml-5">📥</span>{" "}
-        <span className="ml-2">Contact Me</span>
+        <span className="ml-5">📥</span> <span className="ml-2">Contact Me with Email</span>
       </a>
-      <Devider />
+      <Divider />
       <div
         onClick={() => {
           localStorage.clear();
@@ -67,14 +64,13 @@ function DefaultMenu(props) {
         }}
         className="w-full block cursor-default py-0.5 hover:bg-ub-warm-grey hover:bg-opacity-20 mb-1.5"
       >
-        <span className="ml-5">🧹</span>{" "}
-        <span className="ml-2">Reset Ubuntu</span>
+        <span className="ml-5">🧹</span> <span className="ml-2">Reset Ubuntu</span>
       </div>
     </div>
   );
 }
 
-function Devider() {
+function Divider() {
   return (
     <div className="flex justify-center w-full">
       <div className=" border-t border-gray-900 py-1 w-2/5"></div>
