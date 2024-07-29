@@ -2,11 +2,17 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -21,18 +27,33 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "components/*": ["src/components/*"],
-      "pages/*": ["src/pages/*"],
-      "utils/*": ["src/utils/*"],
-      "types/*": ["src/types/*"],
-      "hooks/*": ["src/hooks/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "components/*": [
+        "src/components/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ],
+      "utils/*": [
+        "src/utils/*"
+      ],
+      "types/*": [
+        "src/types/*"
+      ],
+      "hooks/*": [
+        "src/hooks/*"
+      ]
     },
     "allowJs": true,
     "incremental": true,
     "esModuleInterop": true
   },
-  "include": ["src", "tailwind.config.js"],
+  "include": [
+    "src",
+    "tailwind.config.js"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"
@@ -41,8 +62,10 @@
   "ts-node": {
     "compilerOptions": {
       "module": "es2015",
-      "moduleResolution": "node"
+      "moduleResolution": "bundler"
     }
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

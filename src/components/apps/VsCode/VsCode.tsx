@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function VsCode() {
+export const VsCode = () => {
   return (
     <iframe
       src="https://github1s.com/x1agy/portfolio/blob/HEAD/src/components/apps/terminal.js"
@@ -9,8 +9,4 @@ export default function VsCode() {
       className="h-full w-full bg-ub-cool-grey"
     ></iframe>
   );
-}
-
-export const displayVsCode = () => {
-  <VsCode> </VsCode>;
 };
